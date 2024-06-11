@@ -1,30 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Calculadora con Python y Flask</title>
-  <script>
-    async function calcular(operacion) {
-      const a = document.getElementById('a').value;
-      const b = document.getElementById('b').value;
-      const response = await fetch(`http://127.0.0.1:5000/${operacion}?a=${a}&b=${b}`);
-      const result = await response.json();
-      document.getElementById('resultado').innerText = `Resultado: ${result.result}`;
-    }
-  </script>
+    <meta charset="UTF-8">
+    <title>Buscador de URLs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>Calculadora</h1>
-  <label for="a">Valor A:</label>
-  <input type="number" id="a">
-  <br>
-  <label for="b">Valor B:</label>
-  <input type="number" id="b">
-  <br>
-  <button onclick="calcular('suma')">Sumar</button>
-  <button onclick="calcular('resta')">Restar</button>
-  <button onclick="calcular('multiplicacion')">Multiplicar</button>
-  <button onclick="calcular('division')">Dividir</button>
-  <p id="resultado">Resultado: </p>
+    <div class="container">
+        <h1>Detector de URLs</h1>
+        <form action="/buscar" method="post">
+            <input type="text" name="url" placeholder="Introduce una URL" required>
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
 </body>
 </html>

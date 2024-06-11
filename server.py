@@ -1,5 +1,5 @@
-from flask import Flask, request, jsonify, render_template
-import operaciones
+from flask import Flask, request, render_template
+import conversion
 
 app = Flask(__name__)
 
@@ -7,30 +7,14 @@ app = Flask(__name__)
 def index():
   return render_template('index.html')
 
-@app.route('/suma', methods=['GET'])
-def suma():
-  a = float(request.args.get('a'))
-  b = float(request.args.get('b'))
-  return jsonify(result=operaciones.suma(a, b))
-
-@app.route('/resta', methods=['GET'])
-def resta():
-  a = float(request.args.get('a'))
-  b = float(request.args.get('b'))
-  return jsonify(result=operaciones.resta(a, b))
-
-@app.route('/multiplicacion', methods=['GET'])
-def multiplicacion():
-  a = float(request.args.get('a'))
-  b = float(request.args.get('b'))
-  return jsonify(result=operaciones.multiplicacion(a, b))
-
-@app.route('/division', methods=['GET'])
-def division():
-  a = float(request.args.get('a'))
-  b = float(request.args.get('b'))
-  return jsonify(result=operaciones.division(a, b))
+@app.route('/buscar', methods=['POST'])
+def buscar():
+  url = request.form['url']
+  print(f'URL recibida: {url}')
+  # Llama a la función de conversión y obtén los resultados
+  resultado = conversion.procesar_url(url)
+  print(f'Detalles de la URL: {resultado}')
+  return f'<h2>URL recibida: {url}</h2><pre>{resultado}</pre>'
 
 if __name__ == '__main__':
   app.run(debug=True)
-
