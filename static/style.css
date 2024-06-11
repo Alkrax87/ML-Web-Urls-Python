@@ -14,6 +14,7 @@ body {
   padding: 50px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 50%;
 }
 
 h1 {
@@ -28,22 +29,29 @@ form {
 }
 
 input[type="text"] {
-  width: 80%;
+  width: 100%;
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 button {
   padding: 15px 30px;
-  font-size: 16px;
+  font-size: 18px;
   color: white;
   background-color: #007BFF;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+button i {
+  margin-right: 10px;
 }
 
 button:hover {

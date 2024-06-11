@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <title>Buscador de URLs</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <h1>Detector de URLs</h1>
         <form action="/buscar" method="post">
             <input type="text" name="url" placeholder="Introduce una URL" required>
-            <button type="submit">Buscar</button>
+            <button type="submit"><i class="fas fa-search"></i> Buscar</button>
         </form>
     </div>
 </body>
